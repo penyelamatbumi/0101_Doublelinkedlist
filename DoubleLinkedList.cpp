@@ -10,3 +10,14 @@ public:
     Node *prev;
 };
 
+class DoublyLinkedList
+{
+    Node *START;
+
+public:
+    DoublyLinkedList()
+    {
+        START = NULL;
+    }
+
+   
