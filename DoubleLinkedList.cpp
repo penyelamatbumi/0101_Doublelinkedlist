@@ -30,4 +30,6 @@ public:
 
         nodeBaru->noMhs = nim;
 
-        
+        if (START == NULL || nim <= START->noMhs)
+        {
+           
