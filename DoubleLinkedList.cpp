@@ -130,4 +130,28 @@ public:
         cout << endl;
     }
 
+    void reverse()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        Node *currentNode = START;
+
+        while (currentNode->next != NULL)
+        {
+            currentNode = currentNode->next;
+        }
+
+        cout << "Records in descending order of roll number are:\n";
+        while (currentNode != NULL)
+        {
+            cout << currentNode->noMhs << " ";
+            currentNode = currentNode->prev;
+        }
+        cout << endl;
+    }
+
     
