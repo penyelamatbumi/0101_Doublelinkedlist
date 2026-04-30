@@ -38,4 +38,21 @@ public:
                 return;
             }
 
-            
+            nodeBaru->next = START;
+
+            if (START != NULL)
+                START->prev = nodeBaru;
+
+            nodeBaru->prev = NULL;
+            START = nodeBaru;
+            return;
+        }
+
+        Node *current = START;
+
+        while (current->next != NULL && current->next->noMhs < nim)
+        {
+            current = current->next;
+        }
+
+        
