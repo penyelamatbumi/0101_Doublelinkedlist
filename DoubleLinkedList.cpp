@@ -107,4 +107,122 @@ public:
             current->prev->next = current->next;
         }
 
-       
+        delete current;
+        cout << "Record with roll number " << rollNo << " deleted" << endl;
+    }
+
+    void traverse()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        Node *currentNode = START;
+
+        cout << "Records in ascending order of roll number are:\n";
+        while (currentNode != NULL)
+        {
+            cout << currentNode->noMhs << " ";
+            currentNode = currentNode->next;
+        }
+        cout << endl;
+    }
+
+    void reverse()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        Node *currentNode = START;
+
+        while (currentNode->next != NULL)
+        {
+            currentNode = currentNode->next;
+        }
+
+        cout << "Records in descending order of roll number are:\n";
+        while (currentNode != NULL)
+        {
+            cout << currentNode->noMhs << " ";
+            currentNode = currentNode->prev;
+        }
+        cout << endl;
+    }
+
+    void searchData()
+    {
+        if (START == NULL)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+
+        int rollNo;
+        cout << "Enter the roll number to search: ";
+        cin >> rollNo;
+
+        Node *current = START;
+
+        while (current != NULL && current->noMhs != rollNo)
+            current = current->next;
+
+        if (current == NULL)
+            cout << "Record not found" << endl;
+        else
+            cout << "Record found, roll number is " << current->noMhs << endl;
+    }
+};
+
+int main()
+{
+    DoublyLinkedList list;
+    char choice;
+
+    do
+    {
+        cout << "\nMenu\n";
+        cout << "1. Add Record\n";
+        cout << "2. Delete Record\n";
+        cout << "3. Traverse (Ascending)\n";
+        cout << "4. Traverse (Descending)\n";
+        cout << "5. Search Record\n";
+        cout << "6. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case '1':
+            list.addNode();
+            break;
+        case '2':
+            list.hapus();
+            break;
+        case '3':
+            list.traverse();
+            break;
+        case '4':
+            list.reverse();
+            break;
+        case '5':
+            list.searchData();
+            break;
+        case '6':
+            return 0;
+        default:
+            cout << "Invalid option\n";
+        }
+
+        cout << "\nPress enter to continue...";
+        cin.ignore();
+        cin.get();
+
+    } while (choice != '6');
+
+    return 0;
+}
